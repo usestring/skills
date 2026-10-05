@@ -1,0 +1,21 @@
+[
+  {
+    "repo": "usestring/string-claude-plugin",
+    "version_file": ".claude-plugin/plugin.json",
+    "skill_lists": [".claude-plugin/plugin.json", ".claude-plugin/marketplace.json"]
+  },
+  {
+    "repo": "usestring/string-cursor-plugin",
+    "version_file": ".cursor-plugin/plugin.json",
+    "changelog": "CHANGELOG.md",
+    "resubmit_note": "Cursor does not read updates from the repository. Resubmit at https://cursor.com/marketplace/publish after merging."
+  },
+  {
+    "repo": "usestring/string-gemini-extension",
+    "version_file": "gemini-extension.json"
+  },
+  {
+    "repo": "usestring/string-grok-plugin",
+    "version_file": ".grok-plugin/plugin.json"
+  }
+]

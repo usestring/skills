@@ -1,0 +1,48 @@
+name: Sync skills to plugin repos
+
+# skills/ here is the source of truth. The Claude Code, Cursor, Gemini CLI and Grok plugin
+# repos carry copies; this workflow keeps them identical and bumps each plugin's version so
+# the marketplaces that key on it pick the change up.
+
+on:
+  push:
+    branches: [main]
+    paths: ["skills/**"]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only report what would change"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-skills
+  cancel-in-progress: false
+
+jobs:
+  targets:
+    runs-on: ubuntu-latest
+    outputs:
+      repos: ${{ steps.list.outputs.repos }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - id: list
+        run: echo "repos=$(jq -c '[.[].repo]' .github/sync-targets.json)" >> "$GITHUB_OUTPUT"
+
+  sync:
+    needs: targets
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        repo: ${{ fromJSON(needs.targets.outputs.repos) }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - name: Sync ${{ matrix.repo }}
+        env:
+          GH_TOKEN: ${{ secrets.SKILLS_SYNC_TOKEN }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
+        run: python3 scripts/sync_target.py "${{ matrix.repo }}"
