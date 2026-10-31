@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "string-web-access",
+  "version": "1.0.0",
+  "description": "Skills and the hosted MCP server for String Web Access: fetch pages, search the web, run site integrations, crawl sitemaps and send POST/PUT/PATCH requests.",
+  "author": {
+    "name": "String",
+    "url": "https://usestring.ai"
+  },
+  "homepage": "https://usestring.ai/web-access",
+  "repository": "https://github.com/usestring/skills",
+  "license": "MIT",
+  "keywords": ["web-access", "scraping", "search", "mcp", "string"]
+}
