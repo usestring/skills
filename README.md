@@ -40,6 +40,8 @@ Claude Code: add the [String Web Access plugin](https://github.com/usestring/str
 /plugin marketplace add usestring/string-claude-plugin
 ```
 
+ChatGPT and Codex: install the [String plugin](https://chatgpt.com/plugins/plugin_asdk_app_6ad977595d008191854e61c90429e576) from the OpenAI Plugins Directory. It connects the hosted MCP server, signs in with String and brings its own skills, so there is nothing to copy from this repo. In Codex CLI, run `/plugins` and install String from there.
+
 ## Keeping the plugins in sync
 
 `.github/workflows/sync-plugins.yml` runs whenever anything under `skills/` changes on `main`. For each plugin repo listed in `.github/sync-targets.json`, it:
