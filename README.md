@@ -13,10 +13,13 @@ This repository is the source of truth for String's skills. The [Claude Code](ht
 | [`string-fetch`](skills/string-fetch) | Fetch any page as clean, LLM-ready Markdown. |
 | [`string-sitemap`](skills/string-sitemap) | Find every URL on a site. |
 | [`string-request`](skills/string-request) | Send a POST, PUT or PATCH with a body to a URL. |
+| [`string-cli`](skills/string-cli) | All of the above through the `string` command, for agents that can run shell commands. |
 
 ## Before you install
 
-The skills drive String Web Access's MCP tools, so your agent needs the hosted server connected: `https://mcp.usestring.ai/v1/mcp` with an `Authorization: Bearer <your String API key>` header. Get a key at [portal.usestring.ai](https://portal.usestring.ai). The [setup docs](https://portal.usestring.ai/docs/mcp/remote) cover each client.
+`string-cli` needs the [`string` CLI](https://github.com/usestring/cli) (`npm install -g @usestring/cli`) and your String API key in `STRING_API_KEY`. An agent with a shell should prefer it: it needs no MCP connection, and responses can go through `jq` or into files instead of into the agent's context.
+
+The other skills drive String Web Access's MCP tools, so your agent needs the hosted server connected: `https://mcp.usestring.ai/v1/mcp` with an `Authorization: Bearer <your String API key>` header. Get a key at [portal.usestring.ai](https://portal.usestring.ai). The [setup docs](https://portal.usestring.ai/docs/mcp/remote) cover each client.
 
 ## Install
 
@@ -25,6 +28,7 @@ Any agent that supports skills:
 ```bash
 npx skills add usestring/skills
 npx skills add usestring/skills --skill string-web-access   # one skill only
+npx skills add usestring/skills --skill string-cli          # the CLI skill alone
 ```
 
 Muse Code, one skill at a time:

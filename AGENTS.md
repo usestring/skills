@@ -11,23 +11,32 @@ every URL on a site, and POST/PUT/PATCH requests to a URL.
 
 ### Connect
 
+- CLI: `npm install -g @usestring/cli` installs the `string` command, which reads the key from
+  `STRING_API_KEY`. `string --help` lists the commands.
 - Hosted MCP server (streamable HTTP): `https://mcp.usestring.ai/v1/mcp`
 - Auth: an `Authorization: Bearer <String API key>` header, or the client's MCP OAuth flow where
   it supports one. Get a key at [portal.usestring.ai](https://portal.usestring.ai).
 - Per-client setup: [portal.usestring.ai/docs/mcp/remote](https://portal.usestring.ai/docs/mcp/remote)
 - Skills: `npx skills add usestring/skills`
 
+### CLI or MCP
+
+If you can run shell commands, use the `string` CLI (the `string-cli` skill). It makes the same
+calls without an MCP connection, and its JSON output can go through `jq` or into a file instead
+of into your context. Use the MCP tools when you have no shell, or when the server is connected
+and there is no `STRING_API_KEY` for the CLI to use.
+
 ### Pick the tool
 
 Follow **search → fetch → browser**, starting at the cheapest step that can answer the question.
 
-| You have | Use |
-| --- | --- |
-| A question, no URL | `web_access_search` |
-| A URL | `web_access_fetch` |
-| A site, and you need every page | `web_access_sitemap` |
-| An endpoint that takes a body | `web_access_request` |
-| A page that needs a click, scroll or form before the content exists | `web_access_fetch` with `actions` |
+| You have | CLI | MCP tool |
+| --- | --- | --- |
+| A question, no URL | `string search` | `web_access_search` |
+| A URL | `string fetch` | `web_access_fetch` |
+| A site, and you need every page | `string sitemap submit` | `web_access_sitemap` |
+| An endpoint that takes a body | `string request` | `web_access_request` |
+| A page that needs a click, scroll or form before the content exists | `string fetch` with `actions` in `--input` | `web_access_fetch` with `actions` |
 
 Use these instead of a plain HTTP request for sites that rate-limit, geo-gate or block automated
 traffic. A direct request to those often returns HTTP 200 with a block page and no content.
@@ -55,4 +64,7 @@ Details for each tool are in the skills under [`skills/`](skills).
 - Adding or removing a skill also means updating the table in `README.md`.
 - Test a sync locally without writing anything:
   `DRY_RUN=true python3 scripts/sync_target.py usestring/string-claude-plugin`
-- Describe only tools, parameters and behavior that the hosted MCP server actually has.
+- Describe only tools, parameters and behavior that the hosted MCP server and the `string` CLI
+  actually have.
+- `skills/string-cli` is a copy of the skill the `string` binary embeds, from
+  [usestring/cli](https://github.com/usestring/cli). Change it there and copy it here.
