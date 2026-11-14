@@ -18,10 +18,10 @@ bearer API key from [portal.usestring.ai](https://portal.usestring.ai).
 
 ## From a shell
 
-If you can run shell commands and `string --help` works (or `npm install -g @usestring/cli` can
-install it), use the `string` CLI with `STRING_API_KEY` set: `string search`, `string fetch`,
-`string request` and `string sitemap` make the same calls as these tools, and their output can go
-through `jq` or into a file instead of into your context. See [string-cli](../string-cli/SKILL.md).
+If you can run shell commands and `string --help` works, use the `string` CLI: `string search`,
+`string fetch`, `string request` and `string sitemap` make the same calls as these tools, and their
+output can go through `jq` or into a file instead of into your context. `string search` and
+`string fetch` work without a key. See [string-cli](../string-cli/SKILL.md).
 The rules below apply to it unchanged.
 
 ## The escalation rule

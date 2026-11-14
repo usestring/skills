@@ -11,8 +11,9 @@ every URL on a site, and POST/PUT/PATCH requests to a URL.
 
 ### Connect
 
-- CLI: `npm install -g @usestring/cli` installs the `string` command, which reads the key from
-  `STRING_API_KEY`. `string --help` lists the commands.
+- CLI: the `string` command, from [usestring/cli](https://github.com/usestring/cli).
+  `string fetch` and `string search` work without a key; the other commands use `STRING_API_KEY`
+  or a key saved by `string login`. `string --help` lists the commands.
 - Hosted MCP server (streamable HTTP): `https://mcp.usestring.ai/v1/mcp`
 - Auth: an `Authorization: Bearer <String API key>` header, or the client's MCP OAuth flow where
   it supports one. Get a key at [portal.usestring.ai](https://portal.usestring.ai).
@@ -24,7 +25,7 @@ every URL on a site, and POST/PUT/PATCH requests to a URL.
 If you can run shell commands, use the `string` CLI (the `string-cli` skill). It makes the same
 calls without an MCP connection, and its JSON output can go through `jq` or into a file instead
 of into your context. Use the MCP tools when you have no shell, or when the server is connected
-and there is no `STRING_API_KEY` for the CLI to use.
+and the CLI has no key for a command that needs one.
 
 ### Pick the tool
 
@@ -36,7 +37,7 @@ Follow **search → fetch → browser**, starting at the cheapest step that can 
 | A URL | `string fetch` | `web_access_fetch` |
 | A site, and you need every page | `string sitemap submit` | `web_access_sitemap` |
 | An endpoint that takes a body | `string request` | `web_access_request` |
-| A page that needs a click, scroll or form before the content exists | `string fetch` with `actions` in `--input` | `web_access_fetch` with `actions` |
+| A page that needs a click, scroll or form before the content exists | `string fetch --actions JSON` | `web_access_fetch` with `actions` |
 
 Use these instead of a plain HTTP request for sites that rate-limit, geo-gate or block automated
 traffic. A direct request to those often returns HTTP 200 with a block page and no content.
