@@ -18,11 +18,15 @@ bearer API key from [portal.usestring.ai](https://portal.usestring.ai).
 
 ## From a shell
 
-If you can run shell commands and `string --help` works, use the `string` CLI: `string search`,
-`string fetch`, `string request` and `string sitemap` make the same calls as these tools, and their
-output can go through `jq` or into a file instead of into your context. `string search` and
-`string fetch` work without a key. See [string-cli](../string-cli/SKILL.md).
+If you can run shell commands and `string --version` prints 0.2.0 or later, use the `string` CLI:
+`string search`, `string fetch`, `string request` and `string sitemap` make the same calls as these
+tools, and their output can go through `jq` or into a file instead of into your context.
+`string search` and `string fetch` work without a key. See [string-cli](../string-cli/SKILL.md).
 The rules below apply to it unchanged.
+
+When these tools are connected and `string whoami` says "Not logged in", use these tools for
+anything the CLI refuses without a key (a key-only option or a spent daily allowance) instead of
+asking the user to sign in.
 
 ## The escalation rule
 

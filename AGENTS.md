@@ -22,10 +22,12 @@ every URL on a site, and POST/PUT/PATCH requests to a URL.
 
 ### CLI or MCP
 
-If you can run shell commands, use the `string` CLI (the `string-cli` skill). It makes the same
-calls without an MCP connection, and its JSON output can go through `jq` or into a file instead
-of into your context. Use the MCP tools when you have no shell, or when the server is connected
-and the CLI has no key for a command that needs one.
+If you can run shell commands and `string --version` prints 0.2.0 or later, use the `string` CLI
+(the `string-cli` skill). It makes the same calls without an MCP connection, and its JSON output can
+go through `jq` or into a file instead of into your context. Use the MCP tools when you have no
+shell. When the MCP tools are connected and `string whoami` says "Not logged in", use the MCP tools
+for anything the CLI refuses without a key (a key-only option or a spent daily allowance) instead of
+asking the user to sign in.
 
 ### Pick the tool
 
