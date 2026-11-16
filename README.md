@@ -19,7 +19,7 @@ This repository is the source of truth for String's skills. The [Claude Code](ht
 
 `string-cli` needs the [`string` CLI](https://github.com/usestring/cli). `string fetch` and `string search` work without a key; the other commands need your String API key, in `STRING_API_KEY` or saved by `string login`. An agent with a shell should prefer it: it needs no MCP connection, and responses can go through `jq` or into files instead of into the agent's context.
 
-The other skills drive String Web Access's MCP tools, so your agent needs the hosted server connected: `https://mcp.usestring.ai/v1/mcp` with an `Authorization: Bearer <your String API key>` header. Get a key at [portal.usestring.ai](https://portal.usestring.ai). The [setup docs](https://portal.usestring.ai/docs/mcp/remote) cover each client.
+The other skills drive String Web Access's MCP tools, so your agent needs the hosted server connected: `https://mcp.usestring.ai/v1/mcp` with an `Authorization: Bearer <your String API key>` header. Get a key at [portal.usestring.ai](https://portal.usestring.ai). The [setup docs](https://docs.usestring.ai/mcp/remote) cover each client.
 
 ## Install
 
