@@ -16,7 +16,7 @@ This repository is the source of truth for String's skills. The [Claude Code](ht
 
 ## Before you install
 
-The skills drive String Web Access's MCP tools, so your agent needs the hosted server connected: `https://mcp.usestring.ai/v1/mcp` with an `Authorization: Bearer <your String API key>` header. Get a key at [portal.usestring.ai](https://portal.usestring.ai). The [setup docs](https://portal.usestring.ai/docs/mcp/remote) cover each client.
+The skills drive String Web Access's MCP tools, so your agent needs the hosted server connected: `https://mcp.usestring.ai/v1/mcp` with an `Authorization: Bearer <your String API key>` header. Get a key at [portal.usestring.ai](https://portal.usestring.ai). The [setup docs](https://docs.usestring.ai/mcp/remote) cover each client.
 
 ## Install
 

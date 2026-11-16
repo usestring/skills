@@ -14,7 +14,7 @@ every URL on a site, and POST/PUT/PATCH requests to a URL.
 - Hosted MCP server (streamable HTTP): `https://mcp.usestring.ai/v1/mcp`
 - Auth: an `Authorization: Bearer <String API key>` header, or the client's MCP OAuth flow where
   it supports one. Get a key at [portal.usestring.ai](https://portal.usestring.ai).
-- Per-client setup: [portal.usestring.ai/docs/mcp/remote](https://portal.usestring.ai/docs/mcp/remote)
+- Per-client setup: [docs.usestring.ai/mcp/remote](https://docs.usestring.ai/mcp/remote)
 - Skills: `npx skills add usestring/skills`
 
 ### Pick the tool
