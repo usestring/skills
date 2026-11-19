@@ -38,10 +38,11 @@ git clone https://github.com/usestring/skills string-skills
 muse skills install ./string-skills/skills/string-web-access --scope user
 ```
 
-Claude Code: add the [String Web Access plugin](https://github.com/usestring/string-claude-plugin) marketplace, which bundles these skills with the MCP server, then install `string-web-access` from it.
+Claude Code: add the [String Web Access plugin](https://github.com/usestring/string-claude-plugin) marketplace, which bundles these skills with the MCP server, then install `string` from it.
 
 ```
 /plugin marketplace add usestring/string-claude-plugin
+/plugin install string@string
 ```
 
 ChatGPT and Codex: install the [String plugin](https://chatgpt.com/plugins/plugin_asdk_app_6ad977595d008191854e61c90429e576) from the OpenAI Plugins Directory. It connects the hosted MCP server, signs in with String and brings its own skills, so there is nothing to copy from this repo. In Codex CLI, run `/plugins` and install String from there.
