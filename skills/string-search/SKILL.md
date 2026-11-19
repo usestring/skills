@@ -20,6 +20,9 @@ You have a question but no URL yet. This is step one of the
 Do not use it when you already have the URL — go straight to
 [string-fetch](../string-fetch/SKILL.md) and save a round trip.
 
+These tools need no API key. If they are missing or ask for sign-in, see
+[string-web-access](../string-web-access/SKILL.md).
+
 ## Call it
 
 ```json
