@@ -38,11 +38,12 @@ to sign in. Errors go to stderr with a nonzero exit status.
   login` saved; `string whoami` says which. When you need a key and have none, run
   `string login --json`. It returns at once with `verification_uri_complete` and `user_code`: give
   both to the user, ask them to approve, then run `string login --poll`, which waits for the
-  approval and saves a new key for their organization. If it says this build can't sign in through
-  the browser, or the user prefers, they can create a key at https://portal.usestring.ai/api-keys
-  and save it with `string login --with-token < key.txt`. Never ask for a key in chat, and never put
-  one in a URL, a query, a header value, a command line or a file you commit. In an unattended run,
-  don't start a login; stay keyless or stop and report.
+  approval and saves a new key for their organization. Add `--env-file .env` to either command to
+  put the key in the project's `.env` too, without printing it. If `string login` says this build
+  can't sign in through the browser, or the user prefers, they can create a key at
+  https://portal.usestring.ai/api-keys and save it with `string login --with-token < key.txt`.
+  Never ask for a key in chat, and never put one in a URL, a query, a header value, a command line
+  or a file you commit. In an unattended run, don't start a login; stay keyless or stop and report.
 - `string status` shows what you can spend before a large job: with a key, the balance left, any
   amount held by running crawls, and the plan's request rate; without one, what the last keyless
   call left of today's allowance. It spends none of the allowance, and `--json` gives one object.

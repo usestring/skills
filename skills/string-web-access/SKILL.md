@@ -13,8 +13,22 @@ description: |
 
 Four tools, one rule for choosing between them.
 
-Server: `https://mcp.usestring.ai/v1/mcp` (configured by this plugin). Authentication is a
-bearer API key from [portal.usestring.ai](https://portal.usestring.ai).
+Server: `https://mcp.usestring.ai/v1/mcp` (configured by this plugin).
+
+## Keys
+
+Go down this list and stop at the first step that works:
+
+1. **No key.** With the `string` CLI, `string search` and `string fetch` run without one, within a
+   daily allowance per IP address: 50 requests and 100 credits a UTC day. Make the first call before
+   asking anyone to sign in.
+2. **A person approves once.** `string login --json --env-file .env` (CLI 0.2.1 or later) returns a
+   link and a code at once. Give both to the person, then run `string login --poll`: once they
+   approve, the CLI saves a new key and writes it to `.env` as `STRING_API_KEY`, without printing it.
+
+This server takes that key as a bearer token, `Authorization: Bearer <key>`, or signs in through
+the client's MCP OAuth flow where it has one. A key can also be created at
+[portal.usestring.ai](https://portal.usestring.ai/api-keys).
 
 ## From a shell
 
