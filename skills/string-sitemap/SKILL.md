@@ -19,6 +19,9 @@ tree. Typically to seed a batch of [fetch](../string-fetch/SKILL.md) calls.
 
 Do not use it to find one page — that is a [search](../string-search/SKILL.md).
 
+These tools need no API key. If they are missing or ask for sign-in, see
+[string-web-access](../string-web-access/SKILL.md).
+
 ## The four steps
 
 Unlike fetch and search, this is a job, not a request. It costs real crawl budget, so it is
