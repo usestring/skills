@@ -17,6 +17,9 @@ One URL in, clean Markdown out.
 You have a URL. This is step two of the
 [escalation rule](../string-web-access/SKILL.md): search → **fetch** → browser.
 
+These tools need no API key. If they are missing or ask for sign-in, see
+[string-web-access](../string-web-access/SKILL.md).
+
 ## Call it
 
 The common case is one parameter:

@@ -20,6 +20,9 @@ This is deliberately separate from `web_access_fetch`. A tool that both reads an
 be marked read-only, and read-only tools run without asking the user first. Keeping the write
 here is what lets a write prompt and a read not.
 
+These tools need no API key. If they are missing or ask for sign-in, see
+[string-web-access](../string-web-access/SKILL.md).
+
 ## Call it
 
 ```json
