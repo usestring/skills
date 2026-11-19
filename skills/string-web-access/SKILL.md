@@ -25,6 +25,10 @@ Go down this list and stop at the first step that works:
 2. **A person approves once.** `string login --json --env-file .env` (CLI 0.2.1 or later) returns a
    link and a code at once. Give both to the person, then run `string login --poll`: once they
    approve, the CLI saves a new key and writes it to `.env` as `STRING_API_KEY`, without printing it.
+3. **Nobody to ask.** `string trial` registers a key with $0.50 of credit after a few seconds of
+   proof of work, with no account and nobody present. The key doesn't expire. A person can claim the
+   agent onto their String account within 7 days; [string-cli](../string-cli/SKILL.md) has the
+   commands.
 
 This server takes that key as a bearer token, `Authorization: Bearer <key>`, or signs in through
 the client's MCP OAuth flow where it has one. A key can also be created at
