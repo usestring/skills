@@ -43,7 +43,16 @@ to sign in. Errors go to stderr with a nonzero exit status.
   can't sign in through the browser, or the user prefers, they can create a key at
   https://portal.usestring.ai/api-keys and save it with `string login --with-token < key.txt`.
   Never ask for a key in chat, and never put one in a URL, a query, a header value, a command line
-  or a file you commit. In an unattended run, don't start a login; stay keyless or stop and report.
+  or a file you commit. In an unattended run, don't start a login: stay keyless, take a trial key
+  as below, or stop and report.
+- When you need a key and nobody can approve one, run `string trial`. After a few seconds of proof
+  of work it saves a key with $0.50 of credit where `string login` would, with no account, and
+  prints no secret. The key doesn't expire; it stops when the credit runs out. It refuses while
+  `STRING_API_KEY` is set or a key is saved, and exits 3 where the server offers no trial keys.
+  A person can move the agent onto their String account within 7 days: run
+  `string trial claim --email ADDRESS --json`, give them the `verification_uri` and `user_code` it
+  returns, then run `string trial claim --poll`, which waits for them and saves a key on their
+  account in place of the trial key.
 - `string status` shows what you can spend before a large job: with a key, the balance left, any
   amount held by running crawls, and the plan's request rate; without one, what the last keyless
   call left of today's allowance. It spends none of the allowance, and `--json` gives one object.
