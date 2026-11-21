@@ -44,7 +44,9 @@ because reads belong on `web_access_fetch`.
 | `format` | Defaults to `json`, the `{ statusCode, headers, data }` envelope. A write's caller usually needs the status code more than prose |
 | `headers` | The endpoint needs an auth header or a specific content type. Max 50 |
 | `countryCode` | The endpoint is geo-gated. ISO 3166-1 alpha-2, e.g. `"US"` |
-| `solveCaptcha` | Defaults true. Set false to fail fast instead of waiting on a challenge |
+
+There is no `solveCaptcha` parameter. The connection's String key decides whether a challenge
+page is attempted, and a key made at sign-in starts with solving off.
 
 `executeJS` and `actions` are not available here. Both run a browser session, and a browser
 session is always a GET.

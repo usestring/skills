@@ -39,7 +39,9 @@ Everything below is optional and should stay off unless a plain fetch has actual
 | `actions` | The content only exists after a click, scroll or form submit — see [browser actions](../string-web-access/references/browser-actions.md) |
 | `headers` | The site requires a specific header. Max 50. Not supported with `executeJS` |
 | `countryCode` | The page is geo-gated or serves regional content. ISO 3166-1 alpha-2, e.g. `"US"` |
-| `solveCaptcha` | Defaults true. Set false to fail fast instead of waiting on a challenge |
+
+There is no `solveCaptcha` parameter. The connection's String key decides whether a challenge
+page is attempted, and a key made at sign-in starts with solving off.
 
 ## Examples
 

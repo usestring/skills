@@ -107,9 +107,10 @@ block and burn proxy budget. Change a parameter, or escalate to `actions`.
 
 ## Cost and latency
 
-`executeJS` and `actions` drive a real browser and are meaningfully slower than a plain
-fetch. Turn them on when a plain fetch has actually failed, not pre-emptively. `solveCaptcha`
-defaults on; set it `false` to fail fast when you would rather retry differently than wait.
+`executeJS` and browser actions drive a real browser and are meaningfully slower than a plain
+fetch. Turn them on when a plain fetch has actually failed, not pre-emptively. The tools take no
+`solveCaptcha` field: the connection's String key decides whether a challenge page is attempted,
+and a key made at sign-in starts with solving off.
 
 ## Security
 
