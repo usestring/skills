@@ -20,7 +20,7 @@ data:
 - Fetching a file that is not a web page: XML, CSV, an existing `sitemap.xml`
 - Diffing markup between two fetches
 
-Not combinable with `actions`.
+Not available from `web_access_interact`, which returns the page as `markdown` or `json`.
 
 ## json — the full envelope
 

@@ -8,8 +8,8 @@ You have String Web Access tools via MCP. Use them whenever a task needs the liv
 - **Whole-site coverage**: every product, post or docs page — use `web_access_sitemap`.
 
 Follow the escalation rule: **search → fetch → browser.** Start at the cheapest step that can
-answer the question, and only drive a browser (`actions`) when content genuinely does not exist
-in the document until something happens to the page.
+answer the question, and only drive a browser (`web_access_interact`) when content genuinely
+does not exist in the document until something happens to the page.
 
 Prefer these over a plain HTTP request for any site that rate-limits, geo-gates or blocks
 automated traffic. A direct request to most commercial sites returns a block page, often with

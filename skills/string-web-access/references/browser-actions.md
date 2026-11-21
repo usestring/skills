@@ -1,17 +1,18 @@
 # Browser actions
 
-`actions` runs a real browser session and returns the page as it stands after the last step.
-Use it only when the content does not exist in the document until something happens to the
-page — a consent gate, a search form, a "load more" button, a tab that renders on click, rows
-that only appear once scrolled into view.
+`web_access_interact` opens `url` in a real browser session, runs its `actions` in order, and
+returns the page as it stands after the last step. Use it only when the content does not exist
+in the document until something happens to the page — a consent gate, a search form, a "load
+more" button, a tab that renders on click, rows that only appear once scrolled into view.
 
 It is the slowest and most expensive path. Try a plain fetch, then `executeJS`, before this.
 
 ## Constraints
 
-- At most **50 actions**, and at most **one screenshot**.
-- Not combinable with `headers` or `format: "raw"`. A browser session is always a GET, and
-  `web_access_fetch` has no `method` or `body` to conflict with.
+- At most **50 actions**. There is no screenshot step.
+- Besides `url` and `actions`, it takes `format` (`markdown`, or `json` for the page's HTML) and
+  `countryCode`, and no `headers`. A browser session is always a GET; a request with a body
+  belongs to `web_access_request`.
 
 ## Action types
 
@@ -25,7 +26,6 @@ It is the slowest and most expensive path. Try a plain fetch, then `executeJS`, 
 | `hover` | `selector` |
 | `selectOption` | `selector`, `value` (or an array for a multi-select) |
 | `navigate` | `url` — keeps the session's cookies and state |
-| `screenshot` | `full_page`, `quality` (1–100) |
 
 ## Prefer waiting on a selector
 
