@@ -11,7 +11,7 @@ description: |
 
 # String Web Access
 
-Four tools, one rule for choosing between them.
+Five tools, one rule for choosing between them.
 
 Server: `https://mcp.usestring.ai?login` (configured by this plugin). It signs in with the user's
 String account, so these tools need no API key.
@@ -64,11 +64,11 @@ asking the user to sign in.
 | A URL | `web_access_fetch` | [string-fetch](../string-fetch/SKILL.md) |
 | A site, need every page | `web_access_sitemap` | [string-sitemap](../string-sitemap/SKILL.md) |
 | An endpoint to write to | `web_access_request` | [string-request](../string-request/SKILL.md) |
-| A page that needs clicking, typing or logging in | `web_access_fetch` with `actions` | [browser actions](references/browser-actions.md) |
+| A page that needs clicking, typing or logging in | `web_access_interact` | [browser actions](references/browser-actions.md) |
 
-Most work never leaves `fetch`. Reach for `actions` only when the content genuinely does not
-exist in the document until something happens to the page — a consent gate, a search form, a
-"load more" button, a tab that renders on click.
+Most work never leaves `fetch`. Reach for `web_access_interact` only when the content genuinely
+does not exist in the document until something happens to the page — a consent gate, a search
+form, a "load more" button, a tab that renders on click.
 
 ## Why use this rather than a plain HTTP request
 
@@ -99,11 +99,11 @@ If you find yourself parsing a page that says "verify you are human", "access de
 | Body is empty or a loading shell | Set `executeJS: true` — the content is client-rendered |
 | Block page, CAPTCHA, "verify you are human" | Retry once; if it persists, try `countryCode` for a region the site serves |
 | Wrong regional content, or a geo-gate | Set `countryCode` to an ISO 3166-1 alpha-2 code, e.g. `"US"` |
-| Content only appears after a click or scroll | Use `actions` — see [browser actions](references/browser-actions.md) |
+| Content only appears after a click or scroll | Use `web_access_interact` — see [browser actions](references/browser-actions.md) |
 | Need a header the site requires | Use `headers`; note it cannot be combined with `executeJS` |
 
 Do not wrap calls in your own retry loop. Repeated identical requests re-roll the same
-block and burn proxy budget. Change a parameter, or escalate to `actions`.
+block and burn proxy budget. Change a parameter, or escalate to `web_access_interact`.
 
 ## Cost and latency
 
